@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block css %}
+     body{
+         background-color:light green;
+        }
+    .my_detail_image{
+           width: 50%;
+          height: 45%;
+
+          }
+    img{
+        width: 100%;
+        height: 100%;
+        objet-fit:cover;
+      }
+    .my_movie_title{
+        font-size:30px;
+        text_transform:uppercase;
+        letter-spacing:.2em;
+        padding-top:15px;
+        padding-bottom-10px;
+     }
+    .my_movie_text{
+        padding-right:20px
+        font-size:20px;
+    }
+{% endblock %}
+
+{% block content %}
+<br>
+
+<div class="container-fluide" style="background-color:#9BAF0B;">
+<br>
+<div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+<div class="my_image py-5 pl-5 pt-5" style="width:75%;height:65%;">
+                <img src="{{ detail.image.url }}" alt="{{detail.title}}" style="width:100%;height:85%;align:center;">
+                    </div>
+            </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 py-3 pr-4 pt-3 pb-3">
+            <div class="text-dark">
+                            <h1 class="my_movie_title"><b>{{detail.title}}</b></h1>
+                <p class="my_title"><b>Movie Description:</b></p>
+            <p class="text-justify my_movie_text">{{detail.description}}</p>
+ <p class="my_title"><b>Movie release date:</b></p>
+            <p class="text-justify my_movie_text">{{detail.release_date}}</p>
+                 <p class="my_title"><b>Movie actors:</b></p>
+            <p class="text-justify my_movie_text">{{detail.actors}}</p>
+                <p class="my_title"><b>Movie geners:</b></p>
+            <p class="text-justify my_movie_text">{{detail.genres}}</p>
+                <p class="my_title"><b>Movie trailer link:</b></p>
+            <p class="text-justify my_movie_text">{{detail.trailer_link}}</p>
+
+            </div>
+                </div>
+
+<!--            </div>-->
+    </div>
+</div>
+
+{% endblock %}
+
+

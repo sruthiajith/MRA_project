@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+.body {background-color:#9BAF0B;
+        }
+{% endblock%}
+
+
+{% block content %}
+
+<div class="body pb-5">
+    <br>
+<div>
+  <p class="text-center my_search_text  pt-5">You have search for :<b>"{{query}}"</b></p>
+</div>
+<div class="container">
+    <div class="row mx_auto">
+
+        {% for item in movies %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+
+            <div class="card text-center" style="min-width:18rem;">
+                <a href="{{item.get_url}}"><img class="card-img-top my_image" src="{{item.image.url}}" alt="{{item.title}}"></a>
+                <div class="card-body">
+                    <h4>{{item.title}}</h4>
+                    <h6 class="text-muted"><p><b><i>{{item.genres}}</i> </b>-<i>{{item.movieduration}}</i></p></h6>
+
+                </div>
+                <a href="{% url 'detaile_app:movieDetail' item.id %}" class="btn btn-primary">Read More</a>
+            </div>
+
+        </div>
+      {% empty %}
+            <div class="row mx_auto">
+                <p class="text-center my_search_text"> 0 result found</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+
+
+</div>
+
+{% endblock %}
